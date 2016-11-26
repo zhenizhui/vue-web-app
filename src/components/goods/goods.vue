@@ -30,6 +30,7 @@
                   <span class="now">￥{{food.price}}</span>
                   <span class="old" v-show="food.oldPrice">￥{{food.oldPrice}}</span>
                   <div class="cart-control-wrapper">
+                    <shopcartcontorl :food="food"></shopcartcontorl>
                   </div>
                 </div>
               </div>
@@ -42,6 +43,7 @@
 </template>
 
 <script>
+  import shopcartcontorl from '../shopcartcontrol/shopcartcontrol.vue';
   import BScroll from 'better-scroll';
   const ERR_OK = 0;
   export default {
@@ -49,6 +51,9 @@
       seller: {
         type: Object
       }
+    },
+    components: {
+      shopcartcontorl
     },
     data () {
       return {
