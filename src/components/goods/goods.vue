@@ -40,12 +40,15 @@
       </ul>
     </div>
   </div>
+  <shopcart :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice" :select-foods="selectFoods"></shopcart>
 </template>
 
 <script>
+  import shopcart from '../shopcart/shopcart.vue';
   import shopcartcontorl from '../shopcartcontrol/shopcartcontrol.vue';
   import BScroll from 'better-scroll';
   const ERR_OK = 0;
+
   export default {
     props: {
       seller: {
@@ -53,7 +56,8 @@
       }
     },
     components: {
-      shopcartcontorl
+      shopcartcontorl,
+      shopcart
     },
     data () {
       return {
@@ -74,6 +78,18 @@
           }
         }
         return 0;
+      },
+      selectFoods () {
+        // 通过判断food的count属性来判断是否是已经选中，返回值会传递给购物车组件
+        let foods = [];
+        this.goods.forEach((good) => {
+          good.foods.forEach((food) => {
+            if (food.count) {
+              foods.push(food);
+            }
+          });
+        });
+        return foods;
       }
     },
     created () {
