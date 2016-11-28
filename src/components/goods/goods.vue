@@ -231,6 +231,7 @@
             line-height: 10px
             font-size: 10px
             color: rgb(147, 153, 159)
+            font-weight: normal
           .extra
             .count
               margin-right: 12px
