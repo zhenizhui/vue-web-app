@@ -40,7 +40,7 @@
       </ul>
     </div>
   </div>
-  <shopcart :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice" :select-foods="selectFoods"></shopcart>
+  <shopcart v-ref:shopcart :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice" :select-foods="selectFoods"></shopcart>
 </template>
 
 <script>
@@ -139,6 +139,18 @@
           height += item.clientHeight;
           this.listHeight.push(height);
         }
+      },
+      _drop: function (target) {
+        // 访问子组件 this.$refs.shopcart.drop(target);
+        // 使用$nextTick异步执行下落动画，使其不要立刻执行，优化体验
+        this.$nextTick(() => {
+          this.$refs.shopcart.drop(target);
+        });
+      }
+    },
+    events: {
+      'cart.add' (target) {
+        this._drop(target);
       }
     }
   };
