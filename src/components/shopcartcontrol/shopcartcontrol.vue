@@ -3,12 +3,12 @@
     <span class="reduce-one-outer"
           transition="move"
           v-show="food.count > 0"
-          @click="reduceOne">
+          @click.stop.prevent="reduceOne">
       <i class="fa fa-minus-circle reduce-one"></i>
     </span>
     <span class="quantity" v-show="food.count > 0">{{food.count}}</span>
     <span class="add-one-outer">
-      <i class="fa fa-plus-circle add-one" @click="addOne"></i>
+      <i class="fa fa-plus-circle add-one" @click.stop.prevent="addOne"></i>
     </span>
   </span>
 </template>
