@@ -62,7 +62,7 @@
   import split from '../split/split.vue';
   import BScroll from 'better-scroll';
   import commenttypeselect from '../commentTypeSelect/commentTypeSelect.vue';
-
+  import {formatDate} from '../../js/date';
   const ALL = 2;
 
   export default {
@@ -140,7 +140,8 @@
     },
     filters: {
       formatDate (time) {
-
+        let date = new Date(time);
+        return formatDate(date, 'yyyy-MM-dd hh:mm');
       }
     }
   };
