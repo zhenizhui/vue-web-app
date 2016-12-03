@@ -28,26 +28,27 @@
         <p class="text">{{food.info}}</p>
       </div>
       <split></split>
+      <commenttypeselect :comment-type="commentType" :only-content="onlyContent" :desc="desc" :ratings="food.ratings"></commenttypeselect>
       <div class="rating">
         <h1 class="title">商品评价</h1>
         <div class="rating-wrapper">
           <ul v-show="food.ratings && food.ratings.length">
-            <li v-for="rating in food.ratings" class="rating-item">
+            <li v-show="currentShowingType(rating.rateType, rating.text)" v-for="rating in food.ratings" class="rating-item">
               <div class="user">
                 <span class="name">{{rating.username}}</span>
                 <img :src="rating.avatar" alt="" class="avatar" width="12" height="12">
               </div>
-              <div class="time">{{rating.rateTime}}</div>
+              <div class="time">{{rating.rateTime | formatDate}}</div>
               <div class="text">
-                <p>{{rating.text}}</p>
+                <p class="comment">{{rating.text}}</p>
                 <span class="thumbs-up">
                   <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
                 </span>
               </div>
             </li>
           </ul>
-          <div class="no-rating" v-show="!food.ratings || !food.ratings">
-            <p>暂无评论</p>
+          <div class="no-rating" v-show="!food.ratings || !food.ratings.length">
+            <p>暂无评价</p>
           </div>
         </div>
       </div>
@@ -60,9 +61,8 @@
   import cartcontrol from '../shopcartcontrol/shopcartcontrol.vue';
   import split from '../split/split.vue';
   import BScroll from 'better-scroll';
+  import commenttypeselect from '../commentTypeSelect/commentTypeSelect.vue';
 
-  // const POSITIVE = 0;
-  // const NEGATIVE = 1;
   const ALL = 2;
 
   export default {
@@ -85,7 +85,8 @@
     },
     components: {
       cartcontrol,
-      split
+      split,
+      commenttypeselect
     },
     methods: {
       show () {
@@ -111,6 +112,35 @@
         }
         this.$dispatch('cart.add', event.target);
         Vue.set(this.food, 'count', 1);
+      },
+      currentShowingType (type, text) {
+        if (this.onlyContent && !text) {
+          return false;
+        }
+        if (this.selectType === ALL) {
+          return true;
+        } else {
+          return type === this.selectType;
+        }
+      }
+    },
+    events: {
+      'ratingtype.select' (type) {
+        this.selectType = type;
+        this.$nextTick(() => {
+          this.scroll.refresh();
+        });
+      },
+      'content.toggle' (onlycontent) {
+        this.onlyContent = onlycontent;
+        this.$nextTick(() => {
+          this.scroll.refresh();
+        });
+      }
+    },
+    filters: {
+      formatDate (time) {
+
       }
     }
   };
@@ -235,9 +265,9 @@
             font-size: 0
             .name
               display: inline-block
-              vertical-algin: top
               color: rgb(147, 153, 159)
               font-size: 10px
+              margin-right: 3px
             .avatar
               border-radius: 50%
           .time
@@ -249,7 +279,18 @@
             line-height: 16px
             font-size: 12px
             color: rgb(7, 17, 27)
+            position: relative
+            .comment
+              padding-left: 15px
+            .thumbs-up
+              position: absolute
+              top: 0
+              left: 0
 
 
 
+        .no-rating
+          padding: 16px
+          font-size: 12px
+          color: rgb(147, 153, 159)
 </style>
