@@ -3,6 +3,7 @@
     <div class="menu-wrapper" v-el:menu-wrapper>
       <ul>
         <li v-for="item in goods" class="menu-item" :class="{'current': currentIndex === $index}" @click="selectMenu($index, $event)">
+          <span class="number">2</span>
           <span class="text border-1px">
             <span class="icon" v-show="item.type > 0" :class="classMap[item.type]"></span>
             {{item.name}}
@@ -181,17 +182,32 @@
       width: 80px
       background: #f3f5f7
       .menu-item
+        position: relative
         display: table
         height: 50px
         width: 56px
         padding: 0 12px
         line-height: 14px
+        .number
+          position: absolute
+          top: 5px
+          right: 3px
+          width: 21px
+          height: 14px
+          line-height: 14px
+          text-align: center
+          border-radius: 16px
+          font-size: 9px
+          font-weight: 700
+          color: #fff
+          background: #f01414
         &.current
           position: relative;
           margin-top: -1px;
           z-index: 10
           background: #fff
           font-weight: 700
+          border-left: 4px solid #00a0dc
           .text
             border-none()
         .icon
@@ -222,6 +238,7 @@
           vertical-align: middle
           border-1px(rgba(7, 17, 27, 0.1))
           font-size: 12px
+          padding-right: 5px
     .foods-wrapper
       flex:1
       .title
