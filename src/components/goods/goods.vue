@@ -3,7 +3,7 @@
     <div class="menu-wrapper" v-el:menu-wrapper>
       <ul>
         <li v-for="item in goods" class="menu-item" :class="{'current': currentIndex === $index}" @click="selectMenu($index, $event)">
-          <span class="number">2</span>
+          <span class="number" v-show="item.count">{{item.count}}</span>
           <span class="text border-1px">
             <span class="icon" v-show="item.type > 0" :class="classMap[item.type]"></span>
             {{item.name}}
@@ -31,7 +31,7 @@
                   <span class="now">￥{{food.price}}</span>
                   <span class="old" v-show="food.oldPrice">￥{{food.oldPrice}}</span>
                   <div class="cart-control-wrapper">
-                    <shopcartcontorl :food="food"></shopcartcontorl>
+                    <shopcartcontorl :food="food" :item="item"></shopcartcontorl>
                   </div>
                 </div>
               </div>

@@ -19,6 +19,9 @@
     props: {
       food: {
         type: Object
+      },
+      item: {
+        type: Object
       }
     },
     created () {
@@ -31,8 +34,10 @@
         }
         if (!this.food.count) {
           Vue.set(this.food, 'count', 1);
+          Vue.set(this.item, 'count', 1);
         } else {
           this.food.count++;
+          this.item.count++;
         }
         this.$dispatch('cart.add', event.target);
       },
@@ -40,8 +45,9 @@
         if (!event._constructed) {
           return;
         }
-        if (this.food.count) {
+        if (this.food.count && this.item.count) {
           this.food.count--;
+          this.item.count--;
         }
       }
     }
