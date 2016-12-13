@@ -38,6 +38,16 @@
           this.seller = response.data;
         }
       });
+    },
+    ready () {
+      this.addOnlineDetectListeners();
+    },
+    methods: {
+      addOnlineDetectListeners: function () {
+        window.addEventListener('offline', function (e) {
+          window.alert('网络似乎出了点问题，请查看设备情况');
+        });
+      }
     }
   };
 </script>
