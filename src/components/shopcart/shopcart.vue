@@ -1,5 +1,5 @@
 <template>
-  <div class="shopcart">
+  <div class="shopcart" transition="go">
     <div class="content" @click="toggleList">
       <div class="content-left">
         <div class="logo-wrapper">
@@ -235,6 +235,10 @@
     width: 100%
     height: 48px
     background: #ccc
+    &.go-transition
+      transition: all 0.2s linear
+    &.go-enter, &.go-leave
+      transform: translate3d(0, 100%, 0)
     .content
       display: flex
       background: #141d27
