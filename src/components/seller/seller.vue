@@ -149,7 +149,7 @@
   @import "../../stylus/mixin.styl";
   .seller
     position: absolute
-    top: 174px
+    top: 207px
     bottom: 0
     left: 0
     width: 100%

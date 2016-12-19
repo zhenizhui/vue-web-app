@@ -1,5 +1,31 @@
 <template lang="html">
-  <div class="header">
+  <div class="header" @click="headerEvent">
+    <div class="top-oper">
+      <span class="back"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+      <span class="more" @click.stop.prevent="showMoreMenu"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
+      <ul class="more-menu" v-show="isMoreMenuShow">
+        <li class="more-menu-item">
+          <i class="fa fa-search" aria-hidden="true"></i>
+          <span class="text">店内搜索</span>
+        </li>
+        <li class="more-menu-item">
+          <i class="fa fa-users" aria-hidden="true"></i>
+          <span class="text">多人订餐</span>
+        </li>
+        <li class="more-menu-item">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+          <span class="text">分享商家</span>
+        </li>
+        <li class="more-menu-item">
+          <i class="fa fa-info-circle" aria-hidden="true"></i>
+          <span class="text">商家详情</span>
+        </li>
+        <li class="more-menu-item">
+          <i class="fa fa-heart" aria-hidden="true"></i>
+          <span class="text">收藏商家</span>
+        </li>
+      </ul>
+    </div>
     <div class="content-wrapper">
       <div class="avatar">
         <img width="64" height="64" :src="seller.avatar" alt="头像">
@@ -75,7 +101,8 @@
     },
     data () {
       return {
-        detailShow: false // 详情页是否出现
+        detailShow: false, // 详情页是否出现
+        isMoreMenuShow: false
       };
     },
     methods: {
@@ -84,6 +111,12 @@
       },
       hideDetail () {
         this.detailShow = false;
+      },
+      showMoreMenu () {
+        this.isMoreMenuShow = true;
+      },
+      headerEvent () {
+        this.isMoreMenuShow = false;
       }
     },
     components: {
@@ -102,10 +135,47 @@
   .header
     color: #fff
     position: relative
-    overflow: hidden;
+    overflow: hidden
+    .top-oper
+      padding: 10px 12px
+      position: relative
+      .back, .more
+        display: inline-block
+        width: 30px
+        height: 30px
+        i
+          color: #fff
+          font-size: 25px
+      .more
+        float: right
+        text-align: center
+      .more-menu
+        position: absolute
+        width: 100px
+        height: 137px
+        top: 11px
+        right: 12px
+        background: rgba(23, 22, 22, 0.9)
+        z-index: 3
+        padding: 0 4px
+        text-align: center
+        .more-menu-item
+          padding: 3px 15px
+          display: inline-block
+          font-size: 10px
+          border-bottom: 1px solid rgba(130,124,124,0.9)
+          height: 20px
+          line-height: 20px
+          &:last-child
+            border: none
+          i, span
+            display: inline-block
+          i
+            margin-right: 5px
+
     .content-wrapper
       position: relative
-      padding: 24px 12px 18px 24px
+      padding: 7px 12px 18px 24px
       font-size: 0
       .avatar
         display: inline-block
