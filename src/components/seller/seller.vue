@@ -201,11 +201,11 @@
         position: absolute
         right: 18px
         top: 18px
-        width: 30px
+        width: 36px
         .favorite-icon
           display: inline
           width: 20px
-          margin-left: 5px
+          margin-left: 11px
           margin-right: 5px
           i
             color:#ccc
@@ -217,6 +217,7 @@
           font-size: 10px
           line-height: 10px
           margin-top: 9px
+          text-align: center
     .bulletin
       padding: 18px 18px 0 18px
       line-height: 14px
