@@ -2,7 +2,7 @@
   <div class="header" @click="headerEvent">
     <div class="top-oper">
       <span class="back"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
-      <span class="more" @click.stop.prevent="showMoreMenu"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
+      <span class="more" @click.stop.prevent="showMoreMenu"></span>
       <ul class="more-menu" v-show="isMoreMenuShow">
         <li class="more-menu-item">
           <i class="fa fa-search" aria-hidden="true"></i>
@@ -147,8 +147,35 @@
           color: #fff
           font-size: 25px
       .more
-        float: right
         text-align: center
+        position: absolute
+        top: 23px
+        right: 15px
+        width: 2px
+        height: 2px
+        border-radius: 50%
+        border: solid 1px currentColor
+        background: #fff
+        &:before
+          content: ''
+          position: absolute
+          left: -1px
+          top: -8px
+          width: 2px
+          height: 2px
+          border-radius: 50%
+          border: solid 1px currentColor
+          background: #fff
+        &:after
+          content: ''
+          position: absolute
+          left: -1px
+          top: 6px
+          width: 2px
+          height: 2px
+          border-radius: 50%
+          border: solid 1px currentColor
+          background: #fff
       .more-menu
         position: absolute
         width: 100px
