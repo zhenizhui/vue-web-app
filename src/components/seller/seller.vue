@@ -68,6 +68,18 @@
       </div>
     </div>
   </div>
+  <div class="popup-like" v-show="favorite" v-el:like-div transition="fade">
+    <span class="favorite-icon active">
+      <i class="fa fa-heart" aria-hidden="true"></i>
+    </span>
+    <span class="text">添加收藏成功</span>
+  </div>
+  <div class="popup-unlike" v-show="!favorite" v-el:unlike-div transition="fade">
+    <span class="favorite-icon">
+      <i class="fa fa-heart" aria-hidden="true"></i>
+    </span>
+    <span class="text">取消收藏成功</span>
+  </div>
 </template>
 
 <script>
@@ -101,13 +113,32 @@
       'seller' () {
         this._initScroll();
         this._initPics();
+      },
+      'favorite' (newStatus, oldStatus) {
+        // 监听favorite，控制dom元素的显示和隐藏
+        let that = this;
+        if (newStatus) {
+          setTimeout(function () {
+            that.$els.likeDiv.style.display = 'none';
+          }, 1500);
+        } else {
+          setTimeout(function () {
+            that.$els.unlikeDiv.style.display = 'none';
+          }, 1500);
+        }
       }
     },
     ready () {
+      this._init();
       this._initScroll();
       this._initPics();
     },
     methods: {
+      _init () {
+        // 隐藏添加收藏和取消收藏的dom元素
+        this.$els.likeDiv.style.display = 'none';
+        this.$els.unlikeDiv.style.display = 'none';
+      },
       _initScroll () {
         if (!this.scroll) {
           this.scroll = new BScroll(this.$els.seller, {
@@ -299,6 +330,37 @@
         font-size: 12px
         &:last-child
           border-none()
+  .popup-like, .popup-unlike
+    position: absolute
+    width: 127px
+    height: 77px
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    margin: auto
+    background: rgba(78, 77, 77, 0.7)
+    text-align: center
+    &.fade-transition
+      background: rgba(0, 0, 0, 0.7)
+      transition: all 1.5s
+    &.fade-enter, &.fade-leave
+      background: rgba(0, 0, 0, 0.1)
+    .favorite-icon
+      font-size: 30px
+      display: inline-block
+      margin-top: 11px;
+      &.active
+        color: rgba(230, 113, 113, 0.9)
+    .text
+      display: block;
+      margin-top: 8px
+      color: #fff
+      font-size: 14px
+      font-family: "Microsoft YaHei"
+  .popup-unlike
+    .favorite-icon
+      color: rgba(170, 170, 170, 0.9)
 </style>
 
 
