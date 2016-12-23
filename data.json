@@ -1375,5 +1375,268 @@
       "avatar": "http://static.galileo.xiaojukeji.com/static/tms/default_header.png",
       "recommend": []
     }
+  ],
+  "sellerList":[
+    {
+      "sellerName": "广州麦当劳天河城店",
+      "sellerPic": "",
+      "brand": "品牌",
+      "score": 4.2,
+      "sellCount": 1034,
+      "deliveryPrice": 9,
+      "minPrice": 20,
+      "distance": 390,
+      "deliveryTime": 40,
+      "supports": [
+        {
+          "type": 0,
+          "keyWord": "减",
+          "description": "满45减2, 满85减22"
+        },
+        {
+          "type": 1,
+          "keyWord": "新",
+          "description": "新用户下单立减20元"
+        }
+      ]
+    },
+    {
+      "sellerName": "老北京杂酱面",
+      "sellerPic": "http://fuss10.elemecdn.com/a/69/058c7e0626c1b54c3230bacd09a62jpeg.jpeg?imageView2/0/w/183/h/183/format/webp",
+      "newOrNot": "true",
+      "score": 4.9,
+      "sellCount": 799,
+      "deliveryPrice": 5,
+      "minPrice": 20,
+      "distance": 973,
+      "deliveryTime": "",
+      "supports": [
+        {
+          "type": 0,
+          "keyWord": "减",
+          "description": "满50减1, 满80减2, 满300减3"
+        },
+        {
+          "type": 1,
+          "keyWord": "新",
+          "description": "新用户下单立减20元"
+        },
+        {
+          "type": 3,
+          "keyWord": "3",
+          "description": "3折热送, 品质盛宴"
+        }
+      ]
+    },
+    {
+      "sellerName": "煲仔饭",
+      "sellerPic": "https://fuss10.elemecdn.com/c/54/29c9270c2c2ea1c815de78974d946jpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85",
+      "score": 3,
+      "sellCount": 129,
+      "deliveryPrice": 10,
+      "minPrice": 20,
+      "distance": 373,
+      "deliveryTime": "",
+      "supports": [
+        {
+          "type": 1,
+          "keyWord": "新",
+          "description": "新用户下单立减20元"
+        }
+      ]
+    },
+    {
+      "sellerName": "北海大闸蟹",
+      "sellerPic": "http://fuss10.elemecdn.com/0/d6/ec10a30bb0e6aff104e57931f7a1djpeg.jpeg?imageView2/0/w/168/h/168/format/webp",
+      "score": 2.9,
+      "sellCount": 10,
+      "deliveryPrice": 5,
+      "minPrice": 120,
+      "distance": 973,
+      "deliveryTime": "",
+      "supports": [
+        {
+          "type": 0,
+          "keyWord": "减",
+          "description": "满150减1, 满180减2, 满300减3"
+        },
+        {
+          "type": 1,
+          "keyWord": "新",
+          "description": "新用户下单立减20元"
+        },
+        {
+          "type": 2,
+          "keyWord": "赠",
+          "description": "满200送纯生啤酒一打"
+        }
+      ]
+    },
+    {
+      "sellerName": "麦德克炸鸡汉堡",
+      "sellerPic": "http://fuss10.elemecdn.com/0/a4/7f28c87736e069c9c11e07b5a8250jpeg.jpeg?imageView2/0/w/183/h/183/format/webp",
+      "score": 3.5,
+      "sellCount": 100,
+      "deliveryPrice": 9,
+      "minPrice": 30,
+      "distance": 73,
+      "deliveryTime": "30",
+      "supports": [
+        {
+          "type": 0,
+          "keyWord": "减",
+          "description": "满50减5, 满80减10, 满100减30"
+        },
+        {
+          "type": 1,
+          "keyWord": "新",
+          "description": "新用户下单立减20元"
+        }
+      ]
+    },
+    {
+      "sellerName": "莲香楼点心",
+      "sellerPic": "https://fuss10.elemecdn.com/0/37/257c16a78c54a8a1a5e9c6ebebaa2jpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85",
+      "score": 4,
+      "sellCount": 266,
+      "deliveryPrice": 9,
+      "minPrice": 50,
+      "distance": 550,
+      "deliveryTime": "30",
+      "supports": [
+        {
+          "type": 0,
+          "keyWord": "减",
+          "description": "满50减5, 满80减10, 满100减30"
+        },
+        {
+          "type": 1,
+          "keyWord": "新",
+          "description": "新用户下单立减20元"
+        }
+      ]
+    },
+    {
+      "sellerName": "一品寿司店",
+      "sellerPic": "https://fuss10.elemecdn.com/0/57/964a45a80d046518847e53f1af825jpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85",
+      "score": 3.3,
+      "sellCount": 116,
+      "deliveryPrice": 15,
+      "minPrice": 50,
+      "distance": 1.9,
+      "deliveryTime": "50",
+      "supports": [
+        {
+          "type": 0,
+          "keyWord": "减",
+          "description": "满50减5, 满80减10, 满100减30"
+        },
+        {
+          "type": 1,
+          "keyWord": "新",
+          "description": "新用户下单立减20元"
+        }
+      ]
+    },
+    {
+      "sellerName": "柳州螺蛳粉",
+      "sellerPic": "https://fuss10.elemecdn.com/1/1f/341933effbbd91e7694a492636babjpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85",
+      "score": 3,
+      "sellCount": 135,
+      "deliveryPrice": 10,
+      "minPrice": 20,
+      "distance": 900,
+      "deliveryTime": "20",
+      "supports": [
+        {
+          "type": 0,
+          "keyWord": "减",
+          "description": "满50减5, 满80减10, 满100减30"
+        },
+        {
+          "type": 1,
+          "keyWord": "新",
+          "description": "新用户下单立减20元"
+        }
+      ]
+    },
+    {
+      "sellerName": "隆江猪脚饭",
+      "sellerPic": "https://fuss10.elemecdn.com/3/f5/f3cbb5bc78995f5f068ccf3750c69jpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85",
+      "newOrNot": "true",
+      "score": 0,
+      "sellCount": 0,
+      "deliveryPrice": 5,
+      "minPrice": 30,
+      "distance": 1.78,
+      "deliveryOnTime": "true",
+      "deliveryTime": "",
+      "supports": [
+        {
+          "type": 0,
+          "keyWord": "减",
+          "description": "满50减5, 满80减10, 满100减30"
+        },
+        {
+          "type": 1,
+          "keyWord": "新",
+          "description": "新用户下单立减20元"
+        }
+      ]
+    },
+    {
+      "sellerName": "麻辣抄手",
+      "sellerPic": "https://fuss10.elemecdn.com/e/c1/55ce0351ea1c5f0c97ccaa41239b4jpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85",
+      "score": 4.5,
+      "sellCount": 34,
+      "deliveryPrice": 15,
+      "minPrice": 25,
+      "distance": 592,
+      "deliveryTime": "",
+      "supports": [
+        {
+          "type": 0,
+          "keyWord": "减",
+          "description": "满50减5, 满80减10, 满100减30"
+        },
+        {
+          "type": 1,
+          "keyWord": "新",
+          "description": "新用户下单立减20元"
+        },
+        {
+          "type": 4,
+          "keyWord": "领",
+          "description": "进店领5元代金券"
+        },
+        {
+          "type": 5,
+          "keyWord": "特",
+          "description": "特价商品"
+        }
+      ]
+    },
+    {
+      "sellerName": "东记水果店",
+      "sellerPic": "https://fuss10.elemecdn.com/9/5c/c12316c1b63e6d9df6f5e97e75e61jpeg.jpeg?imageMogr2/thumbnail/100x100/format/webp/quality/85",
+      "score": 4,
+      "sellCount": 33,
+      "deliveryPrice": 5,
+      "minPrice": 10,
+      "distance": 300,
+      "deliveryTime": "15",
+      "supports": [
+        {
+          "type": 0,
+          "keyWord": "减",
+          "description": "满50减5, 满80减10, 满100减30"
+        },
+        {
+          "type": 1,
+          "keyWord": "新",
+          "description": "新用户下单立减20元"
+        }
+      ]
+    }
   ]
 }
