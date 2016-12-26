@@ -1,45 +1,47 @@
 <template>
-  <div class="apps" v-el:app-wrapper>
-    <div class="app-wrapper">
-      <div class="location-weather-search">
-        <div class="location-weather">
-          <div class="location">
-            <span class="map-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-            <span class="location-text">广东省广州市越秀区</span>
-            <i class="fa fa-caret-down" aria-hidden="true"></i>
-          </div>
-          <div class="weather">
-            <div class="weather-text">
-              <p class="temperature">17°</p>
-              <p class="meteorology">多云夜</p>
+  <div class="apps-wrapper">
+    <div class="apps" v-el:app-wrapper>
+      <div class="app-wrapper">
+        <div class="location-weather-search">
+          <div class="location-weather">
+            <div class="location">
+              <span class="map-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+              <span class="location-text">广东省广州市越秀区</span>
+              <i class="fa fa-caret-down" aria-hidden="true"></i>
             </div>
-            <span class="weather-cloud-icon"><i class="fa fa-cloud" aria-hidden="true"></i></span>
-            <span class="weather-moon-icon"><i class="fa fa-moon-o" aria-hidden="true"></i></span>
+            <div class="weather">
+              <div class="weather-text">
+                <p class="temperature">17°</p>
+                <p class="meteorology">多云夜</p>
+              </div>
+              <span class="weather-cloud-icon"><i class="fa fa-cloud" aria-hidden="true"></i></span>
+              <span class="weather-moon-icon"><i class="fa fa-moon-o" aria-hidden="true"></i></span>
+            </div>
           </div>
-        </div>
-        <div class="search">
-          <input class="search-input" placeholder="&#xf002; 搜索商家、商品名称">
+          <div class="search">
+            <input class="search-input" placeholder="&#xf002; 搜索商家、商品名称">
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="footer-tab">
-    <a class="footer-tab-item">
-      <p class="item-icon"><i class="fa fa-shopping-cart" aria-hidden="true"></i></p>
-      <p class="item-text">外卖</p>
-    </a>
-    <a class="footer-tab-item">
-      <p class="item-icon"><i class="fa fa-compass" aria-hidden="true"></i></p>
-      <p class="item-text">发现</p>
-    </a>
-    <a class="footer-tab-item">
-      <p class="item-icon"><i class="fa fa-file-text-o" aria-hidden="true"></i></p>
-      <p class="item-text">订单</p>
-    </a>
-    <a class="footer-tab-item">
-      <p class="item-icon"><i class="fa fa-user-o" aria-hidden="true"></i></p>
-      <p class="item-text">我的</p>
-    </a>
+    <div class="footer-tab">
+      <a class="footer-tab-item">
+        <p class="item-icon"><i class="fa fa-shopping-cart" aria-hidden="true"></i></p>
+        <p class="item-text">外卖</p>
+      </a>
+      <a class="footer-tab-item">
+        <p class="item-icon"><i class="fa fa-compass" aria-hidden="true"></i></p>
+        <p class="item-text">发现</p>
+      </a>
+      <a class="footer-tab-item">
+        <p class="item-icon"><i class="fa fa-file-text-o" aria-hidden="true"></i></p>
+        <p class="item-text">订单</p>
+      </a>
+      <a class="footer-tab-item">
+        <p class="item-icon"><i class="fa fa-user-o" aria-hidden="true"></i></p>
+        <p class="item-text">我的</p>
+      </a>
+    </div>
   </div>
 </template>
 
