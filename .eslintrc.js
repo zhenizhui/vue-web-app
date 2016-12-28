@@ -21,6 +21,8 @@ module.exports = {
     // 语句后面要带分号
     "semi": ['error',"always"],
     // 左括号前面要带空格
-    "space-before-function-paren": ["error", "always"]
+    "space-before-function-paren": ["error", "always"],
+    // http://eslint.org/docs/rules/no-useless-escape
+    "no-useless-escape": "off"
   }
 }
