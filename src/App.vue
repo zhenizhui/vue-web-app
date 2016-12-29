@@ -103,6 +103,47 @@
           </swiper>
           <swiper-pageination></swiper-pageination>
         </div>
+        <div class="activity">
+          <div class="activity-item activity-item-1">
+            <div class="left-big">
+              <h3 class="activity-title stress">8.8元吃夜宵</h3>
+              <p class="activity-desc">距离结束</p>
+              <div class="count-down">
+                <span class="hours">00</span>
+                <span class="colon">:</span>
+                <span class="mins">10</span>
+                <span class="colon">:</span>
+                <span class="seconds">19</span>
+              </div>
+            </div>
+            <div class="right">
+              <div class="right-top">
+                <h3 class="activity-title">最高减50元</h3>
+                <p class="activity-desc">花少更吃好</p>
+              </div>
+              <div class="right-bottom">
+                <div class="right-bottom-left">
+                  <h3 class="activity-title">5折品质餐</h3>
+                  <p class="activity-desc">冬日热享</p>
+                </div>
+                <div class="right-bottom-right">
+                  <h3 class="activity-title">热卖美食</h3>
+                  <p class="activity-desc">附近最火美食</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="activity-item activity-item-2">
+            <div class="left">
+              <h3 class="activity-title">品质大牌日</h3>
+              <p class="activity-desc">最高立减30元</p>
+            </div>
+            <div class="right">
+              <h3 class="activity-title">领券中心</h3>
+              <p class="activity-desc">代金券免费领</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="footer-tab">
@@ -255,6 +296,71 @@
               font-size: 12px
         .swiper-pagination
           text-align: center
+      .activity
+        padding-left: 15px
+        padding-right: 15px
+        .activity-item
+          .activity-title
+            /*共有*/
+            color: #000
+            font-weight: 700
+            &.stress
+              color: #EF3536
+          .activity-desc
+            margin-top: 5px
+            font-size: 12px
+            color: #000
+        .activity-item-1
+          display: flex
+          height: 140px
+          .left-big
+            flex: 1
+            background: #F8F8F8
+            padding: 10px
+            margin-right: 5px
+          .count-down
+            .hours, .mins, .seconds
+              background: #000
+              color: #fff
+              font-size: 12px
+              box-sizing: border-box
+              padding-left: 2px
+              padding-right: 2px
+              border-radius: 3px
+          .right
+            display: flex
+            flex-direction: column
+            flex: 2
+            .right-top
+              flex: 1
+              padding: 10px 10px 0 10px
+              background: #F8F8F8
+            .right-bottom
+              flex: 2
+              margin-top: 5px
+              display: flex
+              .right-bottom-left
+                flex: 1
+                padding: 5px
+                margin-right: 3px
+                background: #F8F8F8
+              .right-bottom-right
+                flex: 1
+                padding: 5px
+                background: #F8F8F8
+
+        .activity-item-2
+          margin-top: 8px
+          display: flex
+          .left
+            flex: 1
+            padding: 5px
+            background: #f7f7f7
+            margin-right: 5px
+          .right
+            flex: 1
+            padding: 5px
+            background: #f7f7f7
   .footer-tab
     position: absolute
     bottom: 0
