@@ -23,6 +23,87 @@
           </div>
         </div>
       </div>
+      <div class="swiper-wrapper">
+        <swiper direction="horizontal">
+          <swiper-item>
+            <div class="food-kind">
+              <div class="food-item">
+                <div class="food-image"></div>
+                <p class="text">美食</p>
+              </div>
+              <div class="food-item">
+                <div class="food-image"></div>
+                <p class="text">甜品饮品</p>
+              </div>
+              <div class="food-item">
+                <div class="food-image"></div>
+                <p class="text">商品超市</p>
+              </div>
+              <div class="food-item">
+                <div class="food-image"></div>
+                <p class="text">预定早餐</p>
+              </div>
+            </div>
+            <div class="food-kind">
+              <div class="food-item">
+                <div class="food-image"></div>
+                <p class="text">果蔬生鲜</p>
+              </div>
+              <div class="food-item">
+                <div class="food-image"></div>
+                <p class="text">新店特惠</p>
+              </div>
+              <div class="food-item">
+                <div class="food-image"></div>
+                <p class="text">准时达</p>
+              </div>
+              <div class="food-item">
+                <div class="food-image"></div>
+                <p class="text">夜宵</p>
+              </div>
+            </div>
+          </swiper-item>
+          <swiper-item>
+            <div class="food-kind">
+              <div class="food-item">
+                <div class="food-image"></div>
+                <p class="text">土豪推荐</p>
+              </div>
+              <div class="food-item">
+                <div class="food-image"></div>
+                <p class="text">鲜花蛋糕</p>
+              </div>
+              <div class="food-item">
+                <div class="food-image"></div>
+                <p class="text">汉堡炸鸡</p>
+              </div>
+              <div class="food-item">
+                <div class="food-image"></div>
+                <p class="text">日韩料理</p>
+              </div>
+            </div>
+            <div class="food-kind">
+              <div class="food-item">
+                <div class="food-image"></div>
+                <p class="text">麻辣烫</p>
+              </div>
+              <div class="food-item">
+                <div class="food-image"></div>
+                <p class="text">披萨意面</p>
+              </div>
+              <div class="food-item">
+                <div class="food-image"></div>
+                <p class="text">川湘菜</p>
+              </div>
+              <div class="food-item">
+                <div class="food-image"></div>
+                <p class="text">包子粥店</p>
+              </div>
+            </div>
+          </swiper-item>
+        </swiper>
+        <swiper-pageination></swiper-pageination>
+      </div>
     </div>
     <div class="footer-tab">
       <a class="footer-tab-item">
@@ -45,10 +126,18 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   import BScroll from 'better-scroll';
+  import swiper from './components/swiper/Swiper.vue';
+  import swiperItem from './components/swiper/SwiperItem.vue';
+  import swiperPageination from './components/swiper/SwiperPagination.vue';
   const ERR_OK = 0;
   export default {
+    components: {
+      swiper,
+      swiperItem,
+      swiperPageination
+    },
     data () {
       return {
         sellerList: []
@@ -148,6 +237,24 @@
               text-align: center
               font-size: 12px
               color: #ccc
+    .swiper-wrapper
+      width: 100%
+      height: 150px
+      .swiper-item
+        padding: 0
+      .food-kind
+        display: flex
+        .food-item
+          flex: 1
+          text-align: center
+          .food-image
+            width: 50px
+            height: 50px
+            margin: 0 auto
+          .text
+            font-size: 12px
+      .swiper-pagination
+        text-align: center
   .footer-tab
     position: absolute
     bottom: 0
