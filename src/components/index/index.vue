@@ -40,37 +40,53 @@
             <swiper-item>
               <div class="food-kind">
                 <div class="food-item">
-                  <div class="food-image"></div>
+                  <div class="food-image">
+                    <img src="https://fuss10.elemecdn.com/b/7e/d1890cf73ae6f2adb97caa39de7fcjpeg.jpeg">
+                  </div>
                   <p class="text">美食</p>
                 </div>
                 <div class="food-item">
-                  <div class="food-image"></div>
+                  <div class="food-image">
+                    <img src="https://fuss10.elemecdn.com/2/35/696aa5cf9820adada9b11a3d14bf5jpeg.jpeg?imageMogr/format/webp/">
+                  </div>
                   <p class="text">甜品饮品</p>
                 </div>
                 <div class="food-item">
-                  <div class="food-image"></div>
+                  <div class="food-image">
+                    <img src="https://fuss10.elemecdn.com/6/72/6cb628b6c1527316c47c018a00762jpeg.jpeg?imageMogr/format/webp/">
+                  </div>
                   <p class="text">商品超市</p>
                 </div>
                 <div class="food-item">
-                  <div class="food-image"></div>
+                  <div class="food-image">
+                    <img src="https://fuss10.elemecdn.com/0/5e/2a4a05b7a55bab6f22f7404bdaa26jpeg.jpeg?imageMogr/format/webp/">
+                  </div>
                   <p class="text">预定早餐</p>
                 </div>
               </div>
               <div class="food-kind">
                 <div class="food-item">
-                  <div class="food-image"></div>
+                  <div class="food-image">
+                    <img src="https://fuss10.elemecdn.com/4/b3/331cb9a50dd57a7a0bc4313cfdce3jpeg.jpeg?imageMogr/format/webp/">
+                  </div>
                   <p class="text">果蔬生鲜</p>
                 </div>
                 <div class="food-item">
-                  <div class="food-image"></div>
+                  <div class="food-image">
+                    <img src="https://fuss10.elemecdn.com/a/fa/d41b04d520d445dc5de42dae9a384jpeg.jpeg?imageMogr/format/webp/">
+                  </div>
                   <p class="text">新店特惠</p>
                 </div>
                 <div class="food-item">
-                  <div class="food-image"></div>
+                  <div class="food-image">
+                    <img src="https://fuss10.elemecdn.com/3/84/8e031bf7b3c036b4ec19edff16e46jpeg.jpeg?imageMogr/format/webp/">
+                  </div>
                   <p class="text">准时达</p>
                 </div>
                 <div class="food-item">
-                  <div class="food-image"></div>
+                  <div class="food-image">
+                    <img src="https://fuss10.elemecdn.com/0/3d/7125a96aab7d583151fbc376480b5jpeg.jpeg?imageMogr/format/webp/">
+                  </div>
                   <p class="text">夜宵</p>
                 </div>
               </div>
@@ -78,37 +94,53 @@
             <swiper-item>
               <div class="food-kind">
                 <div class="food-item">
-                  <div class="food-image"></div>
+                  <div class="food-image">
+                    <img src="https://fuss10.elemecdn.com/e/7e/02b72b5e63c127d5bfae57b8e4ab1jpeg.jpeg?imageMogr/format/webp/">
+                  </div>
                   <p class="text">土豪推荐</p>
                 </div>
                 <div class="food-item">
-                  <div class="food-image"></div>
+                  <div class="food-image">
+                    <img src="https://fuss10.elemecdn.com/8/83/171fd98b85dee3b3f4243b7459b48jpeg.jpeg?imageMogr/format/webp/">
+                  </div>
                   <p class="text">鲜花蛋糕</p>
                 </div>
                 <div class="food-item">
-                  <div class="food-image"></div>
+                  <div class="food-image">
+                    <img src="https://fuss10.elemecdn.com/b/7f/432619fb21a40b05cd25d11eca02djpeg.jpeg?imageMogr/format/webp/">
+                  </div>
                   <p class="text">汉堡炸鸡</p>
                 </div>
                 <div class="food-item">
-                  <div class="food-image"></div>
+                  <div class="food-image">
+                    <img src="https://fuss10.elemecdn.com/6/1a/1e0f448be0624c62db416e864d2afjpeg.jpeg?imageMogr/format/webp/">
+                  </div>
                   <p class="text">日韩料理</p>
                 </div>
               </div>
               <div class="food-kind">
                 <div class="food-item">
-                  <div class="food-image"></div>
+                  <div class="food-image">
+                    <img src="https://fuss10.elemecdn.com/3/c7/a9ef469a12e7a596b559145b87f09jpeg.jpeg?imageMogr/format/webp/">
+                  </div>
                   <p class="text">麻辣烫</p>
                 </div>
                 <div class="food-item">
-                  <div class="food-image"></div>
+                  <div class="food-image">
+                    <img src="https://fuss10.elemecdn.com/7/b6/235761e50d391445f021922b71789jpeg.jpeg?imageMogr/format/webp/">
+                  </div>
                   <p class="text">披萨意面</p>
                 </div>
                 <div class="food-item">
-                  <div class="food-image"></div>
+                  <div class="food-image">
+                    <img src="https://fuss10.elemecdn.com/9/7c/9700836a33e05c2410bda8da59117jpeg.jpeg?imageMogr/format/webp/">
+                  </div>
                   <p class="text">川湘菜</p>
                 </div>
                 <div class="food-item">
-                  <div class="food-image"></div>
+                  <div class="food-image">
+                    <img src="https://fuss10.elemecdn.com/2/17/244241b514affc0f12f4168cf6628jpeg.jpeg?imageMogr/format/webp/">
+                  </div>
                   <p class="text">包子粥店</p>
                 </div>
               </div>
@@ -361,13 +393,15 @@
           padding: 0
           .food-kind
             display: flex
+            margin-bottom: 7px
             .food-item
               flex: 1
               text-align: center
               .food-image
-                width: 50px
-                height: 50px
                 margin: 0 auto
+                img
+                  width: 50px
+                  height: 50px
               .text
                 font-size: 12px
         .swiper-pagination
