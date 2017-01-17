@@ -194,7 +194,7 @@
             <h1 class="seller-list-title">推荐商家</h1>
             <div class="seller-item" v-for="seller in sellerList">
               <div class="seller-logo">
-                <img width="57" height="57" :src="seller.sellerPic">
+                <img :src="seller.sellerPic">
               </div>
               <div class="seller-info">
                 <div class="seller-title">
@@ -281,22 +281,23 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+  @import "../../stylus/mixin.styl"
   .wrapper-parent
     .wrapper
       width: 100%
       box-sizing: border-box
       .location-weather-search
-        padding: 15px 15px 0 15px
+        px2rem(padding, 15)
         background: #0196FF
-        height: 77px
         .location-weather
           color: #fff
           display: flex
+          px2rem(font-size, 35)
           .location
             flex: 2
             font-weight: 700
-            line-height: 24px
-            height: 24px
+            px2rem(height, 15)
+            px2rem(line-height, 15)
           .weather
             flex: 1
             position: relative
@@ -304,48 +305,48 @@
             z-index: 1
             .weather-text
               display: inline-block
-              font-size: 12px
-              margin-right: 37px
+              px2rem(font-size, 30)
+              px2rem(margin-right, 50)
               .temperature
                 text-align: right
             .weather-cloud-icon, .weather-moon-icon
               position: absolute
-              width: 18px
-              height: 18px
+              px2rem(width, 18)
+              px2rem(height, 18)
             .weather-cloud-icon
-              top: 5px
-              right: 7px
+              px2rem(top, 5)
+              px2rem(right, 7)
               z-index: 2
             .weather-moon-icon
-              top: 3px
-              right: 15px
+              px2rem(top, 3)
+              px2rem(right, 15)
               z-index: 3
         .search
-          margin-top: 10px
+          px2rem(margin-top, 10)
           display: flex
           align-items: center
           .arrow-left-wrapper
             flex: 1
-            height: 16px
-            width: 38px
-            margin-top: -8px
+            px2rem(height, 16)
+            px2rem(width, 38)
+            px2rem(margin-top, -8)
             .arrow-left.icon
               display: inline-block
               color: #fff
               position: absolute
-              margin-left: 3px
-              margin-top: 10px
-              width: 16px
-              height: 1px
+              px2rem(margin-left, 3)
+              px2rem(margin-top, 10)
+              px2rem(width, 16)
+              px2rem(height, 1)
               background-color: currentColor
-              margin-left: 5px
+              px2rem(margin-left, 5)
               &:before
                 content: ''
                 position: absolute
-                left: 1px
-                top: -5px
-                width: 10px
-                height: 10px
+                px2rem(left, 1)
+                px2rem(top, -5)
+                px2rem(width, 10)
+                px2rem(height, 10)
                 border-top: solid 1px currentColor
                 border-right: solid 1px currentColor
                 -webkit-transform: rotate(-135deg)
@@ -353,180 +354,203 @@
           .search-input-wrapper
             flex: 7
             .search-input
+              px2rem(height, 60)
               width: 100%
-              padding: 8px 5px 8px 10px
-              border-radius: 40px
+              px2rem(border-radius, 40)
+              px2rem(padding, 20)
               box-sizing: border-box
               outline: 0
               border: none
               font-family: fontAwesome
+              px2rem(font-size, 16)
+              px2rem(line-height, 60)
               &::-webkit-input-placeholder
                 /* Chrome/Opera/Safari */
                 text-align: center
-                font-size: 12px
+                px2rem(font-size, 28)
                 color: #ccc
               &::-moz-placeholder
                 /* Firefox 19+ */
                 text-align: center
-                font-size: 12px
+                px2rem(font-size, 28)
                 color: #ccc
               &:-ms-input-placeholder
                 /* IE 10+ */
                 text-align: center
-                font-size: 12px
+                px2rem(font-size, 28)
                 color: #ccc
               &:-moz-placeholder
                 /* Firefox 18- */
                 text-align: center
-                font-size: 12px
+                px2rem(font-size, 28)
                 color: #ccc
           .search-btn
             flex: 1
             display: inline-block
-            margin-left: 5px
-            margin-top: -5px
+            px2rem(margin-left, 5)
+            px2rem(margin-top, -5)
             color: #fff
       .swiper-wrapper
         width: 100%
-        height: 150px
+        px2rem(height, 275)
+        px2rem(margin-top, 25)
+        px2rem(margin-bottom, 25)
         .swiper-item
           padding: 0
+          px2rem(height, 150)
           .food-kind
-            display: flex
-            margin-bottom: 7px
+            display: block
+            px2rem(margin-bottom, 7)
+            overflow: auto
             .food-item
-              flex: 1
+              width: 25%
               text-align: center
+              float: left
               .food-image
                 margin: 0 auto
+                px2rem(width, 90)
+                px2rem(height, 90)
                 img
-                  width: 50px
-                  height: 50px
+                  width 100%;
+                  height: 100%;
               .text
-                font-size: 12px
+                px2rem(margin-top, 12)
+                px2rem(font-size, 24)
+                color: #666
         .swiper-pagination
           text-align: center
+          px2rem(height, 25)
       .activity
-        padding-left: 15px
-        padding-right: 15px
+        px2rem(padding-left, 15)
+        px2rem(padding-right, 15)
         .activity-item
+          px2rem(font-size, 24)
           .activity-title
             /*共有*/
             color: #000
             font-weight: 700
+            px2rem(margin-bottom, 5)
             &.stress
               color: #EF3536
           .activity-desc
-            margin-top: 5px
-            font-size: 12px
+            px2rem(margin-bottom , 5)
+            px2rem(font-size, 16)
             color: #000
         .activity-item-1
           display: flex
-          height: 140px
+          px2rem(height, 200)
           .left-big
             flex: 1
             background: #F8F8F8
-            padding: 10px
-            margin-right: 5px
+            px2rem(padding, 10)
+            px2rem(margin-right, 5)
             .count-down
               .hours, .mins, .seconds
                 background: #000
                 color: #fff
-                font-size: 12px
+                px2rem(font-size, 16)
                 box-sizing: border-box
-                padding-left: 2px
-                padding-right: 2px
-                border-radius: 3px
+                px2rem(padding-left, 5)
+                px2rem(padding-right, 5)
+                px2rem(border-radius, 5)
           .right
             display: flex
             flex-direction: column
             flex: 2
             .right-top
               flex: 1
-              padding: 10px 10px 0 10px
+              padding: (10/75)rem (10/75)rem 0 (10/75)rem
+              px2rem(padding-top, 10)
+              px2rem(padding-right, 10)
+              px2rem(padding-left, 10)
               background: #F8F8F8
             .right-bottom
               flex: 2
-              margin-top: 5px
+              px2rem(margin-top, 5)
               display: flex
               .right-bottom-left
                 flex: 1
-                padding: 5px
-                margin-right: 5px
+                px2rem(padding, 5)
+                px2rem(margin-right, 5)
                 background: #F8F8F8
               .right-bottom-right
                 flex: 1
-                padding: 5px
+                px2rem(padding, 5)
                 background: #F8F8F8
         .activity-item-2
-          margin-top: 8px
+          px2rem(margin-top, 8)
           display: flex
+          px2rem(height, 150)
           .left
             flex: 1
-            padding: 5px
+            px2rem(padding, 5)
             background: #f7f7f7
-            margin-right: 5px
+            px2rem(margin-right, 5)
           .right
             flex: 1
-            padding: 5px
+            px2rem(padding, 5)
             background: #f7f7f7
       .seller-list
         .seller-list-title
-          padding-left: 15px
-          margin-top: 15px
-          margin-bottom: 15px
+          px2rem(padding-left, 15)
+          px2rem(margin-top, 15)
+          px2rem(margin-bottom, 15)
           font-weight: 500
         .seller-item
           display: flex
-          padding: 15px
+          px2rem(padding, 15)
           position: relative
           .seller-logo
-            width: 57px
-            height: 57px
-            flex: 1
+            position: relative
+            px2rem(width, 110)
+            px2rem(height, 110)
+            px2rem(margin-right, 10)
+            img
+              display: block
+              width: 100%
+              height: 100%
+              px2rem(border-radius, 4)
           .seller-info
             flex: 4
             .seller-title
-              margin-bottom: 5px
+              px2rem(font-size, 24)
+              px2rem(margin-bottom, 16)
               .brand
                 display: inline-block
-                padding: 1px 2px
+                px2rem(padding, 3)
                 color: #663A00
-                font-size: 12px
                 background-color: #FEDE3F
               .seller-name
                 font-weight: 700
             .score-number
-              margin-left: 5px
-              font-size: 12px
+              px2rem(margin-left, 5)
               color: #FF8400
+              px2rem(font-size, 18)
             .sell-count
-              margin-left: 7px
-              font-size: 12px
+              px2rem(margin-left, 7)
+              px2rem(font-size, 18)
               color: #828282
             .delivery
-              margin-top: 5px
+              px2rem(margin-top, 16)
               .min-delivery
-                font-size: 12px
                 color: #000
               .distance
-                font-size: 12px
+                px2rem(font-size, 20)
                 float: right
                 .distance-min
                   color: #2395ff
-                  font-size: 12px
           .newOrNot
             position: absolute
             top: 0
             left: 0
-            width: 35px
-            height: 40px
+            px2rem(width, 60)
+            px2rem(height, 60)
             background-image: linear-gradient(135deg, #26ce61, #26ce61 50%, transparent 0)
             .text
               position: absolute
-              top: 8px
+              px2rem(top, 10)
               color: #ffffff
-              font-size: 12px
+              px2rem(font-size, 16)
               transform: rotate(-45deg) scale(.85);
 
 </style>

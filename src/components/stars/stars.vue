@@ -45,7 +45,7 @@
 <style lang="stylus" rel="stylesheet/stylus">
   .star
     .star-item
-      font-size: 12px
+      font-size: (20/75)rem
       &.on
         i
           color: #FF8400
