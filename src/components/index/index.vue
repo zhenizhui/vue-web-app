@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper-parent">
+  <div class="index">
     <scroll :on-refresh="onRefresh" :on-infinite="onInfinite">
       <div class="wrapper">
         <div class="location-weather-search">
@@ -192,7 +192,9 @@
         <div class="seller-list-wrapper">
           <div class="seller-list">
             <h1 class="seller-list-title">推荐商家</h1>
-            <div class="seller-item" v-for="seller in sellerList">
+            <!-- 57866665a773bd006691c281 -->
+            <div class="seller-item" v-link="{name: 'seller', params: {seller: '57866665a773bd006691c281'}}"
+                 v-for="seller in sellerList" @click="setCurrentSeller(seller)">
               <div class="seller-logo">
                 <img :src="seller.sellerPic">
               </div>
@@ -206,7 +208,8 @@
                 <span class="sell-count">月售{{seller.sellCount}}单</span>
                 <div class="delivery">
                   <span class="min-delivery">￥{{seller.minPrice}}起送 / 配送费￥{{seller.deliveryPrice}}</span>
-                  <span class="distance">{{seller.distance}}m / <span class="distance-min">{{seller.deliveryTime}}分钟</span></span>
+                  <span class="distance">{{seller.distance}}m / <span
+                          class="distance-min">{{seller.deliveryTime}}分钟</span></span>
                 </div>
               </div>
               <div class="newOrNot" v-if="seller.newOrNot">
@@ -226,6 +229,7 @@
   import swiperPageination from '../swiper/SwiperPagination.vue';
   import stars from '../stars/stars.vue';
   import scroll from '../scroll/scroll.vue';
+  import {setCurrentSeller} from '../../vuex/actions';
   const ERR_OK = 0;
   export default {
     components: {
@@ -239,7 +243,8 @@
       return {
         sellerList: [],
         isSearching: false,
-        locationAndWeather: true
+        locationAndWeather: true,
+        currentSeller: {}
       };
     },
     created () {
@@ -257,13 +262,32 @@
         setTimeout(() => {
           this.top = this.top - 10;
           console.log('正在重新刷新');
+          this.$http.get('/api/sellerList').then((response) => {
+            response = response.body;
+            if (response.errno === ERR_OK) {
+              this.sellerList = response.data;
+            } else {
+              console.log('sellerList请求数据失败');
+            }
+          });
           done();
         }, 1500);
       },
       onInfinite (done) {
+        let that = this;
         setTimeout(() => {
-          // this.bottom = this.bottom + 10;
-          console.log('正在加载更多内容');
+          that.bottom = that.bottom + 30;
+          that.sellerList.push({
+            sellerName: 'mock数据',
+            sellerPic: '',
+            deliveryTime: 40,
+            score: 5,
+            serviceScore: 4.1,
+            foodScore: 4.5,
+            rankRate: 69.2,
+            sellCount: 90,
+            distance: 400
+          });
           done();
         }, 1000);
       },
@@ -274,7 +298,12 @@
     },
     ready () {
       this.top = 1;
-      this.bottom = 20;
+      // this.bottom = 20;
+    },
+    vuex: {
+      actions: {
+        setCurrentSeller
+      }
     }
   };
 
@@ -282,275 +311,276 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   @import "../../stylus/mixin.styl"
-  .wrapper-parent
-    .wrapper
-      width: 100%
-      box-sizing: border-box
-      .location-weather-search
-        px2rem(padding, 15)
-        background: #0196FF
-        .location-weather
-          color: #fff
-          display: flex
-          px2rem(font-size, 35)
-          .location
-            flex: 2
-            font-weight: 700
-            px2rem(height, 15)
-            px2rem(line-height, 15)
-          .weather
-            flex: 1
-            position: relative
-            text-align: right
-            z-index: 1
-            .weather-text
-              display: inline-block
-              px2rem(font-size, 30)
-              px2rem(margin-right, 50)
-              .temperature
-                text-align: right
-            .weather-cloud-icon, .weather-moon-icon
-              position: absolute
-              px2rem(width, 18)
-              px2rem(height, 18)
-            .weather-cloud-icon
-              px2rem(top, 5)
-              px2rem(right, 7)
-              z-index: 2
-            .weather-moon-icon
-              px2rem(top, 3)
-              px2rem(right, 15)
-              z-index: 3
-        .search
-          px2rem(margin-top, 10)
-          display: flex
-          align-items: center
-          .arrow-left-wrapper
-            flex: 1
-            px2rem(height, 16)
-            px2rem(width, 38)
-            px2rem(margin-top, -8)
-            .arrow-left.icon
-              display: inline-block
-              color: #fff
-              position: absolute
-              px2rem(margin-left, 3)
-              px2rem(margin-top, 10)
-              px2rem(width, 16)
-              px2rem(height, 1)
-              background-color: currentColor
-              px2rem(margin-left, 5)
-              &:before
-                content: ''
-                position: absolute
-                px2rem(left, 1)
-                px2rem(top, -5)
-                px2rem(width, 10)
-                px2rem(height, 10)
-                border-top: solid 1px currentColor
-                border-right: solid 1px currentColor
-                -webkit-transform: rotate(-135deg)
-                transform: rotate(-135deg)
-          .search-input-wrapper
-            flex: 7
-            .search-input
-              px2rem(height, 60)
-              width: 100%
-              px2rem(border-radius, 40)
-              px2rem(padding, 20)
-              box-sizing: border-box
-              outline: 0
-              border: none
-              font-family: fontAwesome
-              px2rem(font-size, 16)
-              px2rem(line-height, 60)
-              &::-webkit-input-placeholder
-                /* Chrome/Opera/Safari */
-                text-align: center
-                px2rem(font-size, 28)
-                color: #ccc
-              &::-moz-placeholder
-                /* Firefox 19+ */
-                text-align: center
-                px2rem(font-size, 28)
-                color: #ccc
-              &:-ms-input-placeholder
-                /* IE 10+ */
-                text-align: center
-                px2rem(font-size, 28)
-                color: #ccc
-              &:-moz-placeholder
-                /* Firefox 18- */
-                text-align: center
-                px2rem(font-size, 28)
-                color: #ccc
-          .search-btn
-            flex: 1
-            display: inline-block
-            px2rem(margin-left, 5)
-            px2rem(margin-top, -5)
-            color: #fff
-      .swiper-wrapper
-        width: 100%
-        px2rem(height, 275)
-        px2rem(margin-top, 25)
-        px2rem(margin-bottom, 25)
-        .swiper-item
-          padding: 0
-          px2rem(height, 150)
-          .food-kind
-            display: block
-            px2rem(margin-bottom, 7)
-            overflow: auto
-            .food-item
-              width: 25%
-              text-align: center
-              float: left
-              .food-image
-                margin: 0 auto
-                px2rem(width, 90)
-                px2rem(height, 90)
-                img
-                  width 100%;
-                  height: 100%;
-              .text
-                px2rem(margin-top, 12)
-                px2rem(font-size, 24)
-                color: #666
-        .swiper-pagination
-          text-align: center
-          px2rem(height, 25)
-      .activity
-        px2rem(padding-left, 15)
-        px2rem(padding-right, 15)
-        .activity-item
-          px2rem(font-size, 24)
-          .activity-title
-            /*共有*/
-            color: #000
-            font-weight: 700
-            px2rem(margin-bottom, 5)
-            &.stress
-              color: #EF3536
-          .activity-desc
-            px2rem(margin-bottom , 5)
-            px2rem(font-size, 16)
-            color: #000
-        .activity-item-1
-          display: flex
-          px2rem(height, 200)
-          .left-big
-            flex: 1
-            background: #F8F8F8
-            px2rem(padding, 10)
-            px2rem(margin-right, 5)
-            .count-down
-              .hours, .mins, .seconds
-                background: #000
-                color: #fff
-                px2rem(font-size, 16)
-                box-sizing: border-box
-                px2rem(padding-left, 5)
-                px2rem(padding-right, 5)
-                px2rem(border-radius, 5)
-          .right
-            display: flex
-            flex-direction: column
-            flex: 2
-            .right-top
-              flex: 1
-              padding: (10/75)rem (10/75)rem 0 (10/75)rem
-              px2rem(padding-top, 10)
-              px2rem(padding-right, 10)
-              px2rem(padding-left, 10)
-              background: #F8F8F8
-            .right-bottom
-              flex: 2
-              px2rem(margin-top, 5)
-              display: flex
-              .right-bottom-left
-                flex: 1
-                px2rem(padding, 5)
-                px2rem(margin-right, 5)
-                background: #F8F8F8
-              .right-bottom-right
-                flex: 1
-                px2rem(padding, 5)
-                background: #F8F8F8
-        .activity-item-2
-          px2rem(margin-top, 8)
-          display: flex
-          px2rem(height, 150)
-          .left
-            flex: 1
-            px2rem(padding, 5)
-            background: #f7f7f7
-            px2rem(margin-right, 5)
-          .right
-            flex: 1
-            px2rem(padding, 5)
-            background: #f7f7f7
-      .seller-list
-        .seller-list-title
-          px2rem(padding-left, 15)
-          px2rem(margin-top, 15)
-          px2rem(margin-bottom, 15)
-          font-weight: 500
-        .seller-item
-          display: flex
-          px2rem(padding, 15)
+  .wrapper
+    position: relative
+    width: 100%
+    box-sizing: border-box
+    overflow: auto
+    .location-weather-search
+      px2rem(padding, 15)
+      background: #0196FF
+      .location-weather
+        color: #fff
+        display: flex
+        px2rem(font-size, 35)
+        .location
+          flex: 2
+          font-weight: 700
+          px2rem(height, 15)
+          px2rem(line-height, 15)
+        .weather
+          flex: 1
           position: relative
-          .seller-logo
-            position: relative
-            px2rem(width, 110)
-            px2rem(height, 110)
-            px2rem(margin-right, 10)
-            img
-              display: block
-              width: 100%
-              height: 100%
-              px2rem(border-radius, 4)
-          .seller-info
-            flex: 4
-            .seller-title
-              px2rem(font-size, 24)
-              px2rem(margin-bottom, 16)
-              .brand
-                display: inline-block
-                px2rem(padding, 3)
-                color: #663A00
-                background-color: #FEDE3F
-              .seller-name
-                font-weight: 700
-            .score-number
-              px2rem(margin-left, 5)
-              color: #FF8400
-              px2rem(font-size, 18)
-            .sell-count
-              px2rem(margin-left, 7)
-              px2rem(font-size, 18)
-              color: #828282
-            .delivery
-              px2rem(margin-top, 16)
-              .min-delivery
-                color: #000
-              .distance
-                px2rem(font-size, 20)
-                float: right
-                .distance-min
-                  color: #2395ff
-          .newOrNot
+          text-align: right
+          z-index: 1
+          .weather-text
+            display: inline-block
+            px2rem(font-size, 30)
+            px2rem(margin-right, 50)
+            .temperature
+              text-align: right
+          .weather-cloud-icon, .weather-moon-icon
             position: absolute
-            top: 0
-            left: 0
-            px2rem(width, 60)
-            px2rem(height, 60)
-            background-image: linear-gradient(135deg, #26ce61, #26ce61 50%, transparent 0)
-            .text
+            px2rem(width, 18)
+            px2rem(height, 18)
+          .weather-cloud-icon
+            px2rem(top, 5)
+            px2rem(right, 7)
+            z-index: 2
+          .weather-moon-icon
+            px2rem(top, 3)
+            px2rem(right, 15)
+            z-index: 3
+      .search
+        px2rem(margin-top, 10)
+        display: flex
+        align-items: center
+        .arrow-left-wrapper
+          flex: 1
+          px2rem(height, 16)
+          px2rem(width, 38)
+          px2rem(margin-top, -8)
+          .arrow-left.icon
+            display: inline-block
+            color: #fff
+            position: absolute
+            px2rem(margin-left, 3)
+            px2rem(margin-top, 10)
+            px2rem(width, 16)
+            px2rem(height, 1)
+            background-color: currentColor
+            px2rem(margin-left, 5)
+            &:before
+              content: ''
               position: absolute
-              px2rem(top, 10)
-              color: #ffffff
+              px2rem(left, 1)
+              px2rem(top, -5)
+              px2rem(width, 10)
+              px2rem(height, 10)
+              border-top: solid 1px currentColor
+              border-right: solid 1px currentColor
+              -webkit-transform: rotate(-135deg)
+              transform: rotate(-135deg)
+        .search-input-wrapper
+          flex: 7
+          .search-input
+            px2rem(height, 60)
+            width: 100%
+            px2rem(border-radius, 40)
+            px2rem(padding, 20)
+            box-sizing: border-box
+            outline: 0
+            border: none
+            font-family: fontAwesome
+            px2rem(font-size, 16)
+            px2rem(line-height, 60)
+            &::-webkit-input-placeholder
+              /* Chrome/Opera/Safari */
+              text-align: center
+              px2rem(font-size, 28)
+              color: #ccc
+            &::-moz-placeholder
+              /* Firefox 19+ */
+              text-align: center
+              px2rem(font-size, 28)
+              color: #ccc
+            &:-ms-input-placeholder
+              /* IE 10+ */
+              text-align: center
+              px2rem(font-size, 28)
+              color: #ccc
+            &:-moz-placeholder
+              /* Firefox 18- */
+              text-align: center
+              px2rem(font-size, 28)
+              color: #ccc
+        .search-btn
+          flex: 1
+          display: inline-block
+          px2rem(margin-left, 5)
+          px2rem(margin-top, -5)
+          color: #fff
+    .swiper-wrapper
+      width: 100%
+      px2rem(height, 275)
+      px2rem(margin-top, 25)
+      px2rem(margin-bottom, 25)
+      .swiper-item
+        padding: 0
+        px2rem(height, 150)
+        .food-kind
+          display: block
+          px2rem(margin-bottom, 7)
+          overflow: auto
+          .food-item
+            width: 25%
+            text-align: center
+            float: left
+            .food-image
+              margin: 0 auto
+              px2rem(width, 90)
+              px2rem(height, 90)
+              img
+                width 100%;
+                height: 100%;
+            .text
+              px2rem(margin-top, 12)
+              px2rem(font-size, 24)
+              color: #666
+      .swiper-pagination
+        text-align: center
+        px2rem(height, 25)
+    .activity
+      px2rem(padding-left, 15)
+      px2rem(padding-right, 15)
+      .activity-item
+        px2rem(font-size, 24)
+        .activity-title
+          /*共有*/
+          color: #000
+          font-weight: 700
+          px2rem(margin-bottom, 5)
+          &.stress
+            color: #EF3536
+        .activity-desc
+          px2rem(margin-bottom, 5)
+          px2rem(font-size, 16)
+          color: #000
+      .activity-item-1
+        display: flex
+        px2rem(height, 200)
+        .left-big
+          flex: 1
+          background: #F8F8F8
+          px2rem(padding, 10)
+          px2rem(margin-right, 5)
+          .count-down
+            .hours, .mins, .seconds
+              background: #000
+              color: #fff
               px2rem(font-size, 16)
-              transform: rotate(-45deg) scale(.85);
-
+              box-sizing: border-box
+              px2rem(padding-left, 5)
+              px2rem(padding-right, 5)
+              px2rem(border-radius, 5)
+        .right
+          display: flex
+          flex-direction: column
+          flex: 2
+          .right-top
+            flex: 1
+            padding: (10 / 75) rem (10 / 75) rem 0 (10 / 75) rem
+            px2rem(padding-top, 10)
+            px2rem(padding-right, 10)
+            px2rem(padding-left, 10)
+            background: #F8F8F8
+          .right-bottom
+            flex: 2
+            px2rem(margin-top, 5)
+            display: flex
+            .right-bottom-left
+              flex: 1
+              px2rem(padding, 5)
+              px2rem(margin-right, 5)
+              background: #F8F8F8
+            .right-bottom-right
+              flex: 1
+              px2rem(padding, 5)
+              background: #F8F8F8
+      .activity-item-2
+        px2rem(margin-top, 8)
+        display: flex
+        px2rem(height, 150)
+        .left
+          flex: 1
+          px2rem(padding, 5)
+          background: #f7f7f7
+          px2rem(margin-right, 5)
+        .right
+          flex: 1
+          px2rem(padding, 5)
+          background: #f7f7f7
+    .seller-list
+      .seller-list-title
+        px2rem(padding-left, 15)
+        px2rem(margin-top, 15)
+        px2rem(margin-bottom, 15)
+        font-weight: 500
+      .seller-item
+        display: flex
+        px2rem(padding, 15)
+        position: relative
+        .seller-logo
+          position: relative
+          px2rem(width, 110)
+          px2rem(height, 110)
+          px2rem(margin-right, 10)
+          img
+            display: block
+            width: 100%
+            height: 100%
+            px2rem(border-radius, 4)
+        .seller-info
+          flex: 4
+          .seller-title
+            px2rem(font-size, 24)
+            px2rem(margin-bottom, 16)
+            .brand
+              display: inline-block
+              px2rem(padding, 3)
+              color: #663A00
+              background-color: #FEDE3F
+            .seller-name
+              color: #000
+              font-weight: 700
+          .score-number
+            px2rem(margin-left, 5)
+            color: #FF8400
+            px2rem(font-size, 18)
+          .sell-count
+            px2rem(margin-left, 7)
+            px2rem(font-size, 18)
+            color: #828282
+          .delivery
+            px2rem(margin-top, 16)
+            .min-delivery
+              color: #000
+            .distance
+              px2rem(font-size, 20)
+              float: right
+              .distance-min
+                color: #2395ff
+        .newOrNot
+          position: absolute
+          top: 0
+          left: 0
+          px2rem(width, 60)
+          px2rem(height, 60)
+          background-image: linear-gradient(135deg, #26ce61, #26ce61 50%, transparent 0)
+          .text
+            position: absolute
+            px2rem(top, 10)
+            color: #ffffff
+            px2rem(font-size, 16)
+            transform: rotate(-45deg) scale(.85);
 </style>
