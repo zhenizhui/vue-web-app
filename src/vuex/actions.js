@@ -5,6 +5,3 @@ export const setCurrentSeller = ({ dispatch }, seller) => {
 export const getCurrentSeller = ({ dispatch }) => {
   dispatch('GET_CURRENT_SELLER');
 };
-
-
-
