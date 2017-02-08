@@ -278,7 +278,6 @@ export default {
 
   .infinite-layer {
     margin-bottom: 55px;
-    height: $layer-height;
     display: flex;
     align-items: center;
     justify-content: center;
