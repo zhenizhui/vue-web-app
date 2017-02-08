@@ -14,7 +14,8 @@
     "vue": "^1.0.21",
     "vue-router": "^0.7.13",
     "babel-runtime": "^6.0.0",
-    "better-scroll":"^0.1.8"
+    "better-scroll":"^0.1.8",
+    "vuex": "^0.6.2"
   },
   "peerDependencies":{
     "stylus": "^0.52.4"
