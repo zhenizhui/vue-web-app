@@ -220,6 +220,7 @@
         </div>
       </div>
     </scroll>
+    <footerbar></footerbar>
   </div>
 </template>
 
@@ -229,6 +230,7 @@
   import swiperPageination from '../swiper/SwiperPagination.vue';
   import stars from '../stars/stars.vue';
   import scroll from '../scroll/scroll.vue';
+  import footerbar from '../footerbar/footerbar.vue';
   import {setCurrentSeller} from '../../vuex/actions';
   const ERR_OK = 0;
   export default {
@@ -237,7 +239,8 @@
       swiperItem,
       swiperPageination,
       stars,
-      scroll
+      scroll,
+      footerbar
     },
     data () {
       return {
