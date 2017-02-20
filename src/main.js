@@ -17,23 +17,46 @@ let router = new VueRouter({
 
 router.map({
   '/': {
-    component: require('./components/index/index.vue')
+    component: function (resolve) {
+      require(['./components/index/index.vue'], resolve);
+    }
   },
   '/index': {
-    component: require('./components/index/index.vue')
+    component: function (resolve) {
+      require(['./components/index/index.vue'], resolve);
+    }
   },
   '/seller/:seller': {
     name: 'seller',
-    component: require('./components/seller/seller.vue'),
+    component: function (resolve) {
+      require(['./components/seller/seller.vue'], resolve);
+    },
     subRoutes: {
       '/': {
-        component: require('./components/sellergood/sellergood.vue')
+        name: 'sellergoods',
+        component: function (resolve) {
+          require(['./components/sellergood/sellergood.vue'], resolve);
+        }
+      },
+      '/sellercomments': {
+        name: 'sellercomments',
+        component: function (resolve) {
+          require(['./components/sellercomments/sellercomments.vue'], resolve);
+        }
+      },
+      '/sellerdetail': {
+        name: 'sellerdetail',
+        component: function (resolve) {
+          require(['./components/sellerdetail/sellerdetail.vue'], resolve);
+        }
       }
     }
   },
   '/user': {
     name: 'user',
-    component: require('./components/user/user.vue')
+    component: function (resolve) {
+      require(['./components/user/user.vue'], resolve);
+    }
   }
 });
 
